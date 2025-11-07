@@ -1,11 +1,11 @@
-'''This program uses the Nearest Neighbout Algorithm to find an approximate solution to the Travelling Salesman Problem'''
+''' This program uses the Nearest Neighbour Algorithm to find an approximate solution to the Travelling Salesman Problem'''
 
 from random import randint
 
 # Create a simple 5 x 5 graph
 
-# The adjacency matrix determines how may edges there are between each vertex
-# To keep it simple it will be only one egde between each vertex: a complete graph
+# The adjacency matrix determines how many edges there are between each vertex
+# To keep it simple, it will be only one edge between each vertex: a complete graph
 adjacency_matrix = [
     [0, 1, 1, 1, 1],
     [1, 0, 1, 1, 1],
@@ -23,7 +23,7 @@ distance_matrix = [
     [0, 0, 0, 0, 0]
 ]
 
-# I will randomise the weight of the graph so that its easier to test if the algorithm works correctly
+# I will randomise the weight of the graph so that it's easier to test if the algorithm works correctly
 for i in range(0, 5):
     for j in range(0, 5):
         if i == j:
@@ -36,20 +36,20 @@ copy_distance_matrix = [row[:] for row in distance_matrix]
 
 
 
-'''To find the shortest cycle starting at a vertex'''
+''' To find the shortest cycle starting at a vertex'''
 # Start at vertex A
 vertex = 0
 order_of_visit = [0]
 edge_distances = distance_matrix[0]
 
 for i in range(0, len(distance_matrix)):
-# To remove visited vertecies
+# To remove visited vertices
     for j in order_of_visit:
         edge_distances[j] = 0
 
     shortest_distance = 100_000
 
-# Finds the shortest_distance between any 2 vertecies
+# Finds the shortest_distance between any two vertices
     for edge in edge_distances:
         if edge < shortest_distance and edge != 0:
             shortest_distance = edge
@@ -66,7 +66,7 @@ for i in range(0, len(distance_matrix)):
 
 
 
-'''Now to find the weight of the cycle'''
+''' Now to find the weight of the cycle'''
 weight = 0
 for i in range(len(order_of_visit) - 1):
     current_vertex = order_of_visit[i]
