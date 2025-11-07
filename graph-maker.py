@@ -3,6 +3,7 @@ The function will create both: adjecnacy matrix and distance matrix'''
 
 BLUE = "\033[94m"
 GREEN = "\033[92m"
+RED = "\033[91m"
 RESET = "\033[0m"
 
 
@@ -49,17 +50,26 @@ def make_adjacency_matrix (size:int) -> list:
 def make_changes_to_a_matrix (matrix: list):
     print(f"\nValues in the matrix will show up in {BLUE}blue{RESET}")
     print(f"Once a value is changed it will turn {GREEN}green{RESET}")
+    print(f"Indexes will appear in {RED}red{RESET}")
     print("\nThis is what the current matrix looks like:")
 
     copy_of_matrix = matrix.copy()
 
     for i, row in enumerate(copy_of_matrix, start=1):
-        col_id = []
 
-        print(f"{i}. {row}")
+        for j, cell in enumerate(row, start=1):
+            copy_of_matrix[i - 1][j - 1] = [f"{RED}{j}{RESET}", f"{BLUE}{cell}{RESET}"]
 
-        for cell_id in range(1, len(row) + 1):
-            pass
+    for i, row in enumerate(copy_of_matrix, start=1):
+
+        row_str = " ".join(f"[{col_id}, {val}]" for col_id, val in row)
+        print(f"{RED}{i}{RESET}. {row_str}")
+
+        
+
+
+
+            
 
 
 
