@@ -49,13 +49,13 @@ def make_changes_to_a_matrix (matrix: list, size: int):
         row_str = " ".join(f"[{col_id}, {val}]" for col_id, val in row)
         print(f"{RED}{i}{RESET}. {row_str}")
 
-    row_index, column_index = valid_index("Enter an index you wish to change", 0, int(f"{size}{size}"))
+    row_index, column_index = valid_index("Enter an index you wish to change", 0, int(f"{size}{size}"), size)
     
     # More intuative for human to start at 1, BUT index needs to be shifted
     row_index, column_index = row_index - 1, column_index - 1
     copy_of_matrix[row_index][column_index][1] = f"{GREEN}{copy_of_matrix[row_index][column_index][1]}{RESET}" # As the copy of the matrix is a 3D matrix
     
-    clear_from_matrix_start()
+    clear_from_matrix_start(5)
 
 
 
