@@ -52,7 +52,8 @@ def valid_index(question: str, min_val: int, max_val: int, size: int) -> int:
             instruction_text_for_valid_index() # Triggeres error statement and makes the user retry
 
         else: 
-            pass
+            print(index)
+            return index
 
             
 

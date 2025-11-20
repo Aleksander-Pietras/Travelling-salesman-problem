@@ -1,29 +1,9 @@
 ''' This program will hold a function that will create a graph.
 The function will create both: adjecnacy matrix and distance matrix'''
 import sys
-import numpy as np
 from validation_for_inputs import *
 
-
 def make_graph(size: int = 1):
-    """
-    Build graph matrices based on the given size.
-
-    Parameters
-    ----------
-    size : int,
-        The number of nodes in the graph (default is 1).
-
-    Returns
-    -------
-    tuple of (adjacency_matrix, direction_matrix, distance_matrix)
-        - adjacency_matrix : 2D list or array
-            Represents which nodes are connected.
-        - direction_matrix : 2D list or array
-            Represents the direction of edges between nodes.
-        - distance_matrix : 2D list or array
-            Represents the distances/weights between nodes.
-    """
     adjacency_matrix = make_adjacency_matrix(size)
     direction_matrix = make_direction_matrix(size, adjacency_matrix)
     distance_matrix = make_distance_matrix(size, adjacency_matrix, direction_matrix)
@@ -49,7 +29,7 @@ def make_adjacency_matrix(size: int) -> list:
     changes = valid_bool("Would you like to make changes to the matrix")
 
     if changes:
-        adjacency_matrix = make_changes_to_matrix(adjacency_matrix, size)
+        adjacency_matrix = make_changes_to_matrix(size, adjacency_matrix)
         return adjacency_matrix
     else:
         return adjacency_matrix
@@ -62,6 +42,13 @@ def make_distance_matrix(size: int, adjacency_matrix, direction_matrix) -> list:
 
 def make_changes_to_matrix(size: int, matrix: list):
     temp_matrix = matrix.copy()
+
+    for row in matrix:
+        print(row)
+
+    print("Enter ")
+    row_index = valid_range("Enter the ")
+
 
 
     
